@@ -74,8 +74,8 @@ export class AlgorithmProcessor {
     }
 
     merge(parameters) {
-        var left = parameters.left;
-        var right = parameters.right;
+        let left = parameters.left;
+        let right = parameters.right;
         let result:Array<number>;
         let l:number;
         let r:number;
@@ -101,9 +101,9 @@ export class AlgorithmProcessor {
     }
 
     quickSort(parameters) {
-        var arr = parameters.arr;
-        var left = parameters.left;
-        var right = parameters.right;
+        let arr = parameters.arr;
+        let left = parameters.left;
+        let right = parameters.right;
         let pivot:number;
         let partitionIndex:number;
 
