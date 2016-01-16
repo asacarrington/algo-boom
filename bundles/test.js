@@ -45,15 +45,15 @@
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(263);
+	__webpack_require__(264);
 	//# sourceMappingURL=index.js.map
 
 /***/ },
 
-/***/ 263:
+/***/ 264:
 /***/ function(module, exports, __webpack_require__) {
 
-	var AlgorithmProcessor_1 = __webpack_require__(264);
+	var AlgorithmProcessor_1 = __webpack_require__(265);
 	describe("A suite", function () {
 	    it("contains spec with an expectation", function () {
 	        expect(true).toBe(true);
@@ -98,7 +98,7 @@
 
 /***/ },
 
-/***/ 264:
+/***/ 265:
 /***/ function(module, exports) {
 
 	var AlgorithmProcessor = (function () {
