@@ -1,0 +1,211 @@
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(263);
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+
+/***/ 263:
+/***/ function(module, exports, __webpack_require__) {
+
+	var AlgorithmProcessor_1 = __webpack_require__(264);
+	describe("A suite", function () {
+	    it("contains spec with an expectation", function () {
+	        expect(true).toBe(true);
+	    });
+	});
+	describe("Should sort arrays", function () {
+	    var component;
+	    var expected;
+	    beforeEach(function () {
+	        component = new AlgorithmProcessor_1.AlgorithmProcessor();
+	        expected = [1, 2, 3, 4, 5, 6];
+	    });
+	    it("should be a sorted array using bubble sort", function () {
+	        var result = component.bubbleSort([3, 4, 3, 5, 6, 7]);
+	        console.log(JSON.stringify(result));
+	        expect(expected.length).toBe(result.length);
+	    });
+	    it("should be a sorted array using section sort", function () {
+	        var result = component.selectionSort([3, 4, 3, 5, 6, 7]);
+	        console.log(JSON.stringify(result));
+	        expect(expected.length).toBe(result.length);
+	    });
+	    it("should be a sorted array using insersion sort", function () {
+	        var result = component.insertionSort([3, 4, 3, 5, 6, 7]);
+	        console.log(JSON.stringify(result));
+	        expect(expected.length).toBe(result.length);
+	    });
+	    it("should be a sorted array using merge sort", function () {
+	        var result = component.mergeSort([3, 4, 3, 5, 6, 7]);
+	        console.log(JSON.stringify(result));
+	        expect(expected.length).toBe(result.length);
+	    });
+	    it("should be a sorted array using quick sort", function () {
+	        var pram;
+	        pram = [3, 4, 3, 5, 6, 7];
+	        var result = component.quickSort(pram, 0, 5);
+	        console.log(JSON.stringify(result));
+	        expect(pram.length).toBe(result.length);
+	    });
+	});
+	//# sourceMappingURL=temp.js.map
+
+/***/ },
+
+/***/ 264:
+/***/ function(module, exports) {
+
+	var AlgorithmProcessor = (function () {
+	    function AlgorithmProcessor() {
+	    }
+	    AlgorithmProcessor.prototype.bubbleSort = function (arr) {
+	        var length = arr.length;
+	        for (var i = length - 1; i >= 0; i--) {
+	            for (var j = 1; j <= i; j++) {
+	                if (arr[j - 1] > arr[j]) {
+	                    var temp = arr[j - 1];
+	                    arr[j - 1] = arr[j];
+	                    arr[j] = temp;
+	                }
+	            }
+	        }
+	        return arr;
+	    };
+	    AlgorithmProcessor.prototype.selectionSort = function (arr) {
+	        var minIdx;
+	        var temp;
+	        var length;
+	        length = arr.length;
+	        for (var i = 0; i < length; i++) {
+	            minIdx = i;
+	            for (var j = i + 1; j < length; j++) {
+	                if (arr[j] < arr[minIdx]) {
+	                    minIdx = j;
+	                }
+	            }
+	            temp = arr[i];
+	            arr[i] = arr[minIdx];
+	            arr[minIdx] = temp;
+	        }
+	        return arr;
+	    };
+	    AlgorithmProcessor.prototype.insertionSort = function (arr) {
+	        var j;
+	        var temp;
+	        var length;
+	        length = arr.length;
+	        for (var i = 1; i < length; ++i) {
+	            temp = arr[i];
+	            j = i - 1;
+	            for (; j >= 0 && arr[j] > temp; --j) {
+	                arr[j + 1] = arr[j];
+	            }
+	            arr[j + 1] = temp;
+	        }
+	        return arr;
+	    };
+	    //Merge
+	    AlgorithmProcessor.prototype.mergeSort = function (arr) {
+	        var len = arr.length;
+	        if (len < 2)
+	            return arr;
+	        var mid = Math.floor(len / 2), left = arr.slice(0, mid), right = arr.slice(mid);
+	        //send left and right to the mergeSort to broke it down into pieces
+	        //then merge those
+	        return this.merge(this.mergeSort(left), this.mergeSort(right));
+	    };
+	    AlgorithmProcessor.prototype.merge = function (left, right) {
+	        var result = [], lLen = left.length, rLen = right.length, l = 0, r = 0;
+	        while (l < lLen && r < rLen) {
+	            if (left[l] < right[r]) {
+	                result.push(left[l++]);
+	            }
+	            else {
+	                result.push(right[r++]);
+	            }
+	        }
+	        //remaining part needs to be addred to the result
+	        return result.concat(left.slice(l)).concat(right.slice(r));
+	    };
+	    //Quick
+	    AlgorithmProcessor.prototype.quickSort = function (arr, left, right) {
+	        var len = arr.length, pivot, partitionIndex;
+	        if (left < right) {
+	            pivot = right;
+	            partitionIndex = this.partition(arr, pivot, left, right);
+	            //sort left and right
+	            this.quickSort(arr, left, partitionIndex - 1);
+	            this.quickSort(arr, partitionIndex + 1, right);
+	        }
+	        return arr;
+	    };
+	    AlgorithmProcessor.prototype.partition = function (arr, pivot, left, right) {
+	        var pivotValue = arr[pivot], partitionIndex = left;
+	        for (var i = left; i < right; i++) {
+	            if (arr[i] < pivotValue) {
+	                this.swap(arr, i, partitionIndex);
+	                partitionIndex++;
+	            }
+	        }
+	        this.swap(arr, right, partitionIndex);
+	        return partitionIndex;
+	    };
+	    AlgorithmProcessor.prototype.swap = function (arr, i, j) {
+	        var temp = arr[i];
+	        arr[i] = arr[j];
+	        arr[j] = temp;
+	    };
+	    return AlgorithmProcessor;
+	})();
+	exports.AlgorithmProcessor = AlgorithmProcessor;
+	//# sourceMappingURL=AlgorithmProcessor.js.map
+
+/***/ }
+
+/******/ });
