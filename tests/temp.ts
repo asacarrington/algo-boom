@@ -45,7 +45,7 @@ describe("Should sort arrays", () => {
   it("should be a sorted array using quick sort", function() {
     let pram : Array<number>;
     pram = [3,4,3,5,6,7];
-    let result = component.quickSort(pram, 0, 5);
+    let result = component.quickSort({arr: pram, left: 0, right: 5});
     console.log(JSON.stringify(result));
     expect(pram.length).toBe(result.length);
   });

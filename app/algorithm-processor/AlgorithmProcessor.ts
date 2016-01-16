@@ -3,7 +3,7 @@ export class AlgorithmProcessor {
     constructor() {
     }
 
-    bubbleSort(arr:Array<number>) {
+    bubbleSort(arr: Array<number>) {
         let length = arr.length;
         for (let i = length - 1; i >= 0; i--) {
             for (let j = 1; j <= i; j++) {
@@ -17,7 +17,7 @@ export class AlgorithmProcessor {
         return arr;
     }
 
-    selectionSort(arr:Array<number>) {
+    selectionSort(arr: Array<number>) {
         let minIdx:number;
         let temp:number;
         let length:number;
@@ -38,7 +38,7 @@ export class AlgorithmProcessor {
     }
 
 
-    insertionSort(arr) {
+    insertionSort(arr: Array<number>) {
         let j:number;
         let temp:number;
         let length:number;
@@ -55,7 +55,7 @@ export class AlgorithmProcessor {
         return arr;
     }
 
-    mergeSort(arr) {
+    mergeSort(arr: Array<number>) {
         let length:number;
         let middle:number;
         let left:Array<number>;
@@ -70,10 +70,12 @@ export class AlgorithmProcessor {
             return arr;
         }
 
-        return this.merge(this.mergeSort(left), this.mergeSort(right));
+        return this.merge({left: this.mergeSort(left), right: this.mergeSort(right)});
     }
 
-    merge(left, right) {
+    merge(parameters) {
+        var left = parameters.left;
+        var right = parameters.right;
         let result:Array<number>;
         let l:number;
         let r:number;
@@ -98,8 +100,10 @@ export class AlgorithmProcessor {
         return result.concat(left.slice(l)).concat(right.slice(r));
     }
 
-    //Quick
-    quickSort(arr, left, right) {
+    quickSort(parameters) {
+        var arr = parameters.arr;
+        var left = parameters.left;
+        var right = parameters.right;
         let pivot:number;
         let partitionIndex:number;
 
@@ -107,13 +111,13 @@ export class AlgorithmProcessor {
             pivot = right;
             partitionIndex = this.partition(arr, pivot, left, right);
 
-            this.quickSort(arr, left, partitionIndex - 1);
-            this.quickSort(arr, partitionIndex + 1, right);
+            this.quickSort({arr: arr, left: left, right: partitionIndex - 1});
+            this.quickSort({arr: arr, left: partitionIndex + 1, right: right});
         }
         return arr;
     }
 
-    partition(arr, pivot, left, right) {
+    private partition(arr: Array<number>, pivot: number, left: number, right: number) {
         let pivotValue = arr[pivot];
         let partitionIndex = left;
 
@@ -127,11 +131,11 @@ export class AlgorithmProcessor {
         return partitionIndex;
     }
 
-    swap(parameters) {
+    private swap(parameters) {
         var arr = parameters.arr;
         var index = parameters.index;
         var j = parameters.j;
-        let temp:number;
+        let temp: number;
 
         temp = arr[index];
         arr[index] = arr[j];

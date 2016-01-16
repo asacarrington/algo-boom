@@ -40,19 +40,20 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(2);
+	__webpack_require__(263);
 	//# sourceMappingURL=index.js.map
 
 /***/ },
-/* 1 */,
-/* 2 */
+
+/***/ 263:
 /***/ function(module, exports, __webpack_require__) {
 
-	var AlgorithmProcessor_1 = __webpack_require__(3);
+	var AlgorithmProcessor_1 = __webpack_require__(264);
 	describe("A suite", function () {
 	    it("contains spec with an expectation", function () {
 	        expect(true).toBe(true);
@@ -88,7 +89,7 @@
 	    it("should be a sorted array using quick sort", function () {
 	        var pram;
 	        pram = [3, 4, 3, 5, 6, 7];
-	        var result = component.quickSort(pram, 0, 5);
+	        var result = component.quickSort({ arr: pram, left: 0, right: 5 });
 	        console.log(JSON.stringify(result));
 	        expect(pram.length).toBe(result.length);
 	    });
@@ -96,7 +97,8 @@
 	//# sourceMappingURL=temp.js.map
 
 /***/ },
-/* 3 */
+
+/***/ 264:
 /***/ function(module, exports) {
 
 	var AlgorithmProcessor = (function () {
@@ -160,9 +162,11 @@
 	        if (length < 2) {
 	            return arr;
 	        }
-	        return this.merge(this.mergeSort(left), this.mergeSort(right));
+	        return this.merge({ left: this.mergeSort(left), right: this.mergeSort(right) });
 	    };
-	    AlgorithmProcessor.prototype.merge = function (left, right) {
+	    AlgorithmProcessor.prototype.merge = function (parameters) {
+	        var left = parameters.left;
+	        var right = parameters.right;
 	        var result;
 	        var l;
 	        var r;
@@ -183,15 +187,17 @@
 	        }
 	        return result.concat(left.slice(l)).concat(right.slice(r));
 	    };
-	    //Quick
-	    AlgorithmProcessor.prototype.quickSort = function (arr, left, right) {
+	    AlgorithmProcessor.prototype.quickSort = function (parameters) {
+	        var arr = parameters.arr;
+	        var left = parameters.left;
+	        var right = parameters.right;
 	        var pivot;
 	        var partitionIndex;
 	        if (left < right) {
 	            pivot = right;
 	            partitionIndex = this.partition(arr, pivot, left, right);
-	            this.quickSort(arr, left, partitionIndex - 1);
-	            this.quickSort(arr, partitionIndex + 1, right);
+	            this.quickSort({ arr: arr, left: left, right: partitionIndex - 1 });
+	            this.quickSort({ arr: arr, left: partitionIndex + 1, right: right });
 	        }
 	        return arr;
 	    };
@@ -222,4 +228,5 @@
 	//# sourceMappingURL=AlgorithmProcessor.js.map
 
 /***/ }
-/******/ ]);
+
+/******/ });
