@@ -132,9 +132,9 @@ export class AlgorithmProcessor {
     }
 
     private swap(parameters) {
-        var arr = parameters.arr;
-        var index = parameters.index;
-        var j = parameters.j;
+        let arr = parameters.arr;
+        let index = parameters.index;
+        let j = parameters.j;
         let temp: number;
 
         temp = arr[index];
