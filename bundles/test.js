@@ -105,7 +105,8 @@
 	    function AlgorithmProcessor() {
 	    }
 	    AlgorithmProcessor.prototype.bubbleSort = function (arr) {
-	        var length = arr.length;
+	        var length;
+	        length = arr.length;
 	        for (var i = length - 1; i >= 0; i--) {
 	            for (var j = 1; j <= i; j++) {
 	                if (arr[j - 1] > arr[j]) {
@@ -165,13 +166,15 @@
 	        return this.merge({ left: this.mergeSort(left), right: this.mergeSort(right) });
 	    };
 	    AlgorithmProcessor.prototype.merge = function (parameters) {
-	        var left = parameters.left;
-	        var right = parameters.right;
+	        var right;
+	        var left;
 	        var result;
 	        var l;
 	        var r;
 	        var lLength;
 	        var rLength;
+	        left = parameters.left;
+	        right = parameters.right;
 	        l = 0;
 	        r = 0;
 	        result = [];
@@ -202,8 +205,10 @@
 	        return arr;
 	    };
 	    AlgorithmProcessor.prototype.partition = function (arr, pivot, left, right) {
-	        var pivotValue = arr[pivot];
-	        var partitionIndex = left;
+	        var partitionIndex;
+	        var pivotValue;
+	        pivotValue = arr[pivot];
+	        partitionIndex = left;
 	        for (var i = left; i < right; i++) {
 	            if (arr[i] < pivotValue) {
 	                this.swap({ arr: arr, index: i, j: partitionIndex });
@@ -214,10 +219,11 @@
 	        return partitionIndex;
 	    };
 	    AlgorithmProcessor.prototype.swap = function (parameters) {
-	        var arr = parameters.arr;
+	        var arr;
 	        var index = parameters.index;
 	        var j = parameters.j;
 	        var temp;
+	        arr = parameters.arr;
 	        temp = arr[index];
 	        arr[index] = arr[j];
 	        arr[j] = temp;

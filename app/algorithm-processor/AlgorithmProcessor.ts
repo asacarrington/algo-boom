@@ -3,8 +3,11 @@ export class AlgorithmProcessor {
     constructor() {
     }
 
-    bubbleSort(arr: Array<number>) {
-        let length = arr.length;
+    bubbleSort(arr:Array<number>) {
+        let length;
+
+        length = arr.length;
+
         for (let i = length - 1; i >= 0; i--) {
             for (let j = 1; j <= i; j++) {
                 if (arr[j - 1] > arr[j]) {
@@ -17,10 +20,11 @@ export class AlgorithmProcessor {
         return arr;
     }
 
-    selectionSort(arr: Array<number>) {
+    selectionSort(arr:Array<number>) {
         let minIdx:number;
         let temp:number;
         let length:number;
+
         length = arr.length;
 
         for (let i = 0; i < length; i++) {
@@ -34,14 +38,16 @@ export class AlgorithmProcessor {
             arr[i] = arr[minIdx];
             arr[minIdx] = temp;
         }
+
         return arr;
     }
 
 
-    insertionSort(arr: Array<number>) {
+    insertionSort(arr:Array<number>) {
         let j:number;
         let temp:number;
         let length:number;
+
         length = arr.length;
 
         for (let i = 1; i < length; ++i) {
@@ -55,7 +61,7 @@ export class AlgorithmProcessor {
         return arr;
     }
 
-    mergeSort(arr: Array<number>) {
+    mergeSort(arr:Array<number>) {
         let length:number;
         let middle:number;
         let left:Array<number>;
@@ -74,14 +80,16 @@ export class AlgorithmProcessor {
     }
 
     merge(parameters) {
-        let left = parameters.left;
-        let right = parameters.right;
+        let right;
+        let left;
         let result:Array<number>;
         let l:number;
         let r:number;
         let lLength:number;
         let rLength:number;
 
+        left = parameters.left;
+        right = parameters.right;
         l = 0;
         r = 0;
         result = [];
@@ -117,9 +125,12 @@ export class AlgorithmProcessor {
         return arr;
     }
 
-    private partition(arr: Array<number>, pivot: number, left: number, right: number) {
-        let pivotValue = arr[pivot];
-        let partitionIndex = left;
+    private partition(arr:Array<number>, pivot:number, left:number, right:number) {
+        let partitionIndex;
+        let pivotValue;
+
+        pivotValue = arr[pivot];
+        partitionIndex = left;
 
         for (var i = left; i < right; i++) {
             if (arr[i] < pivotValue) {
@@ -127,16 +138,18 @@ export class AlgorithmProcessor {
                 partitionIndex++;
             }
         }
+
         this.swap({arr: arr, index: right, j: partitionIndex});
         return partitionIndex;
     }
 
     private swap(parameters) {
-        let arr = parameters.arr;
+        let arr;
         let index = parameters.index;
         let j = parameters.j;
-        let temp: number;
+        let temp:number;
 
+        arr = parameters.arr;
         temp = arr[index];
         arr[index] = arr[j];
         arr[j] = temp;
