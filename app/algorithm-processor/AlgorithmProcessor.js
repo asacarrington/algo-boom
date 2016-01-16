@@ -47,19 +47,32 @@ var AlgorithmProcessor = (function () {
         }
         return arr;
     };
-    //Merge
     AlgorithmProcessor.prototype.mergeSort = function (arr) {
-        var len = arr.length;
-        if (len < 2)
+        var length;
+        var middle;
+        var left;
+        var right;
+        length = arr.length;
+        middle = Math.floor(length / 2);
+        left = arr.slice(0, middle);
+        right = arr.slice(middle);
+        if (length < 2) {
             return arr;
-        var mid = Math.floor(len / 2), left = arr.slice(0, mid), right = arr.slice(mid);
-        //send left and right to the mergeSort to broke it down into pieces
-        //then merge those
+        }
         return this.merge(this.mergeSort(left), this.mergeSort(right));
     };
     AlgorithmProcessor.prototype.merge = function (left, right) {
-        var result = [], lLen = left.length, rLen = right.length, l = 0, r = 0;
-        while (l < lLen && r < rLen) {
+        var result;
+        var l;
+        var r;
+        var lLength;
+        var rLength;
+        l = 0;
+        r = 0;
+        result = [];
+        lLength = left.length;
+        rLength = right.length;
+        while (l < lLength && r < rLength) {
             if (left[l] < right[r]) {
                 result.push(left[l++]);
             }
@@ -67,35 +80,39 @@ var AlgorithmProcessor = (function () {
                 result.push(right[r++]);
             }
         }
-        //remaining part needs to be addred to the result
         return result.concat(left.slice(l)).concat(right.slice(r));
     };
     //Quick
     AlgorithmProcessor.prototype.quickSort = function (arr, left, right) {
-        var len = arr.length, pivot, partitionIndex;
+        var pivot;
+        var partitionIndex;
         if (left < right) {
             pivot = right;
             partitionIndex = this.partition(arr, pivot, left, right);
-            //sort left and right
             this.quickSort(arr, left, partitionIndex - 1);
             this.quickSort(arr, partitionIndex + 1, right);
         }
         return arr;
     };
     AlgorithmProcessor.prototype.partition = function (arr, pivot, left, right) {
-        var pivotValue = arr[pivot], partitionIndex = left;
+        var pivotValue = arr[pivot];
+        var partitionIndex = left;
         for (var i = left; i < right; i++) {
             if (arr[i] < pivotValue) {
-                this.swap(arr, i, partitionIndex);
+                this.swap({ arr: arr, index: i, j: partitionIndex });
                 partitionIndex++;
             }
         }
-        this.swap(arr, right, partitionIndex);
+        this.swap({ arr: arr, index: right, j: partitionIndex });
         return partitionIndex;
     };
-    AlgorithmProcessor.prototype.swap = function (arr, i, j) {
-        var temp = arr[i];
-        arr[i] = arr[j];
+    AlgorithmProcessor.prototype.swap = function (parameters) {
+        var arr = parameters.arr;
+        var index = parameters.index;
+        var j = parameters.j;
+        var temp;
+        temp = arr[index];
+        arr[index] = arr[j];
         arr[j] = temp;
     };
     return AlgorithmProcessor;
