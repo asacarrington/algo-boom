@@ -1,12 +1,12 @@
-import {Component} from "angular2/core";
-import {RouteConfig, ROUTER_DIRECTIVES} from "angular2/router";
-import "rxjs/add/operator/map";
+import {Component, OnInit} from "angular2/core";
+import {ROUTER_DIRECTIVES, Router, RouteParams} from "angular2/router";
+import {FORM_DIRECTIVES, NgForm, FormBuilder, Control, ControlGroup} from "angular2/common";
 
 @Component({
     selector: "app",
-    templateUrl: "/app/app.html",
-    directives: [ROUTER_DIRECTIVES]
+    templateUrl: "/app/algorithm-selector/algorithm-selector.html",
+    directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES]
 })
-export class AlgorithmSelectorService {
-    public title: string = "User Direfsdfsgfdgdfgdfgfdgfdgdgdgdgdfgdfgfdctory";
+export class AlgorithmSelectorService  {
+    public title: string = "aaaaafsdfsgsgsgooooo";
 }

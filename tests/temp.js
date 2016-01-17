@@ -39,4 +39,3 @@ describe("Should sort arrays", function () {
         expect(pram.length).toBe(result.length);
     });
 });
-//# sourceMappingURL=temp.js.map

@@ -10,8 +10,6 @@ bootstrap(app,
         HTTP_PROVIDERS,
         provide(LocationStrategy, {useClass: HashLocationStrategy})]);
 
-
-
 /**
  * Created by asacarrington on 15/01/2016.
  */
