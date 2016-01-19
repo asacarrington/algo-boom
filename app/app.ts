@@ -10,9 +10,9 @@ import {AlgorithmSelectorService} from "./algorithm-selector/algorithm-selector.
     directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-    { path: "/About", component:About, name:"About" },
-    { path: "/Sort", component:AlgorithmSelectorService, name:"Sort" }
+    {path: "/About", component: About, name: "About"},
+    {path: "/Sort", component: AlgorithmSelectorService, name: "Sort"}
 ])
 export class app {
-    title: string = "Algo boom";
+    title:string = "Algo boom";
 }

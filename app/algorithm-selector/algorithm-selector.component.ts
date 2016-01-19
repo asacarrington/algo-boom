@@ -9,10 +9,10 @@ import {AlgorithmDataFormComponent} from "./algorithm-data-form.component";
     templateUrl: "/app/algorithm-selector/algorithm-selector.component.html",
     directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES, AlgorithmDataFormComponent]
 })
-export class AlgorithmSelectorService  {
-    public title: string = "How do you want to sort??";
+export class AlgorithmSelectorService {
+    public title:string = "How do you want to sort??";
 
-    constructor(params: RouteParams,
-                private router: Router) {
-    }     
+    constructor(params:RouteParams,
+                private router:Router) {
+    }
 }

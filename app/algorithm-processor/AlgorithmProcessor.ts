@@ -6,7 +6,7 @@ export class AlgorithmProcessor {
     constructor() {
     }
 
-    bubbleSort(arr:Array<number>): Array<number> {
+    bubbleSort(arr:Array<number>):Array<number> {
         let length;
 
         length = arr.length;
@@ -23,7 +23,7 @@ export class AlgorithmProcessor {
         return arr;
     }
 
-    selectionSort(arr:Array<number>): Array<number> {
+    selectionSort(arr:Array<number>):Array<number> {
         let minIdx:number;
         let temp:number;
         let length:number;
@@ -46,7 +46,7 @@ export class AlgorithmProcessor {
     }
 
 
-    insertionSort(arr:Array<number>): Array<number> {
+    insertionSort(arr:Array<number>):Array<number> {
         let j:number;
         let temp:number;
         let length:number;
@@ -64,7 +64,7 @@ export class AlgorithmProcessor {
         return arr;
     }
 
-    mergeSort(arr:Array<number>): Array<number> {
+    mergeSort(arr:Array<number>):Array<number> {
         let length:number;
         let middle:number;
         let left:Array<number>;
@@ -111,7 +111,7 @@ export class AlgorithmProcessor {
         return result.concat(left.slice(l)).concat(right.slice(r));
     }
 
-    quickSort(parameters): Array<number> {
+    quickSort(parameters):Array<number> {
         let arr = parameters.arr;
         let left = parameters.left;
         let right = parameters.right;

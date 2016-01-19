@@ -9,7 +9,7 @@ import {AlgorithmProcessor} from "./algorithm-processor/AlgorithmProcessor";
 bootstrap(app,
     [ROUTER_PROVIDERS,
         HTTP_PROVIDERS,
-            AlgorithmProcessor
+        AlgorithmProcessor
         provide(LocationStrategy, {useClass: HashLocationStrategy})]);
 
 /**
