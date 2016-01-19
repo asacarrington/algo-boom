@@ -1,8 +1,8 @@
 import {Component} from "angular2/core";
 import {RouteConfig, ROUTER_DIRECTIVES} from "angular2/router";
 import "rxjs/add/operator/map";
-import {About} from "./about/about";
-import {AlgorithmSelectorService} from "./algorithm-selector/algorithm-selector-service";
+import {About} from "./about/about.component";
+import {AlgorithmSelectorService} from "./algorithm-selector/algorithm-selector.component";
 
 @Component({
     selector: "app",
@@ -14,5 +14,5 @@ import {AlgorithmSelectorService} from "./algorithm-selector/algorithm-selector-
     { path: "/Sort", component:AlgorithmSelectorService, name:"Sort" }
 ])
 export class app {
-    title: string = "";
+    title: string = "Algo boom";
 }
