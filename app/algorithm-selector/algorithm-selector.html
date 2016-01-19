@@ -1,13 +1,1 @@
-<form [ngFormModel]="algoForm" (ngSubmit)="submit()">
-    <div class="form-group">
-        <label>Array</label>
-        <input [ngFormControl]="sortInput" type="number" required>
-    </div>
-    <div class="form-group">
-    <label for="algorithm">Algorithm</label>
-        <select [ngFormControl]="sortType" class="form-control" required>
-            <option *ngFor="#algo of algorithms" [value]="algo">{{algo}}</option>
-        </select>
-    </div>
-    <input type="submit" value="Save">
-</form>
+<algorithm-form></algorithm-form>
