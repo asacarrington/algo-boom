@@ -1,9 +1,10 @@
 import {Component} from 'angular2/core';
 import {NgForm}    from 'angular2/common';
 import { AlgorithmModel } from './Algorithm.model';
+
 @Component({
   selector: 'algorithm-form',
-  templateUrl: './algorithm-data-form.component.html'
+  templateUrl: '/app/algorithm-selector/algorithm-data-form.component.html'
 })
 export class AlgorithmDataFormComponent {
   powers = ['quick', 'merge', 'bubble'];

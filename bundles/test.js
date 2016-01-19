@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(264);
+	__webpack_require__(267);
 
 
 /***/ },
@@ -17484,10 +17484,13 @@
 /* 261 */,
 /* 262 */,
 /* 263 */,
-/* 264 */
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var AlgorithmProcessor_1 = __webpack_require__(265);
+	var AlgorithmProcessor_1 = __webpack_require__(268);
 	describe("A suite", function () {
 	    it("contains spec with an expectation", function () {
 	        expect(true).toBe(true);
@@ -17531,7 +17534,7 @@
 
 
 /***/ },
-/* 265 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

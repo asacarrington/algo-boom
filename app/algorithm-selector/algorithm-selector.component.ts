@@ -6,7 +6,7 @@ import {AlgorithmDataFormComponent} from "./algorithm-data-form.component";
 
 @Component({
     selector: "app",
-    templateUrl: "/app/algorithm-selector/algorithm-selector.html",
+    templateUrl: "/app/algorithm-selector/algorithm-selector.component.html",
     directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES, AlgorithmDataFormComponent]
 })
 export class AlgorithmSelectorService  {
