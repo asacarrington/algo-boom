@@ -29,22 +29,51 @@ export class AlgorithmDataFormComponent {
             this.processedInput.push(parseInt(elm));
         }
     } 
+   
+    isNumeric = (n) => {
+       return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+
+    
+    validateInput = () => {
+        let temp = this.sortInput.split(',');
+        
+        if(temp[0] != '['){
+            return false;
+        }
+        else if (temp[temp.length] != ']'){
+            return false;
+        }
+        
+        temp = temp.splice(0,1).splice(temp.length, 1)
+        
+        for (var elm in temp)
+        {
+            if(!this.isNumeric(elm)){
+                return false;
+            }
+        }
+        
+        return true;
+    }
     
     onSubmit = () => {
-        this.convertInput();
-        switch(this.model.type){
-            case'merge':
-                this.sortedOutput = this.algorithmService.mergeSort(this.processedInput);
-            break;
-            case'quick':
-                 this.sortedOutput = this.algorithmService.quickSort(this.processedInput);
-            break;
-            case'bubble':
-                 this.sortedOutput = this.algorithmService.bubbleSort(this.processedInput);
-            break;
-            default:
-        } 
-        this.submitted = true;
+        if(this.validateInput()){
+            this.convertInput();
+            switch(this.model.type){
+                case'merge':
+                    this.sortedOutput = this.algorithmService.mergeSort(this.processedInput);
+                break;
+                case'quick':
+                    this.sortedOutput = this.algorithmService.quickSort(this.processedInput);
+                break;
+                case'bubble':
+                    this.sortedOutput = this.algorithmService.bubbleSort(this.processedInput);
+                break;
+                default:
+            } 
+            this.submitted = true;
+        }
     }
 
     get diagnostic() {
