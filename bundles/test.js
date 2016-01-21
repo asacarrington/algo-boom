@@ -45,6 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(268);
+	__webpack_require__(269);
 
 
 /***/ },
@@ -17678,6 +17679,114 @@
 	        pram = [3, 4, 3, 5, 6, 7];
 	        var result = component.quickSort({ arr: pram, left: 0, right: 5 });
 	        console.log(JSON.stringify(result));
+	        expect(pram.length).toBe(result.length);
+	    });
+	});
+
+
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var AlgorithmProcessor_1 = __webpack_require__(252);
+	describe("Should sort arrays using bubbleSort", function () {
+	    var component;
+	    var expected;
+	    beforeEach(function () {
+	        component = new AlgorithmProcessor_1.AlgorithmProcessor();
+	        expected = [1, 2, 3, 4, 5, 6];
+	    });
+	    it("passes if expected is the same length as result", function () {
+	        var result = component.bubbleSort([3, 4, 3, 5, 6, 7]);
+	        expect(expected.length).toBe(result.length);
+	    });
+	    it("passes if expected is the same as result", function () {
+	        var result = component.bubbleSort([3, 4, 3, 5, 6, 7]);
+	        console.log(JSON.stringify(result));
+	        expect(expected).toEqual(result);
+	    });
+	});
+	describe("Should sort arrays using quicksort", function () {
+	    var component;
+	    var expected;
+	    beforeEach(function () {
+	        component = new AlgorithmProcessor_1.AlgorithmProcessor();
+	        expected = [1, 2, 3, 4, 5, 6];
+	    });
+	    it("passes if expected is the same length as result", function () {
+	        var result = component.quicksort([3, 4, 3, 5, 6, 7]);
+	        expect(expected.length).toBe(result.length);
+	    });
+	    it("passes if expected is the same as result", function () {
+	        var result = component.quicksort([3, 4, 3, 5, 6, 7]);
+	        expect(expected).toEqual(result);
+	    });
+	});
+	describe("Should sort arrays using selectionSort", function () {
+	    var component;
+	    var expected;
+	    beforeEach(function () {
+	        component = new AlgorithmProcessor_1.AlgorithmProcessor();
+	        expected = [1, 2, 3, 4, 5, 6];
+	    });
+	    it("passes if expected is the same length as result", function () {
+	        var result = component.selectionSort([3, 4, 3, 5, 6, 7]);
+	        expect(expected.length).toBe(result.length);
+	    });
+	    it("passes if expected is the same as result", function () {
+	        var result = component.selectionSort([3, 4, 3, 5, 6, 7]);
+	        expect(expected).toEqual(result);
+	    });
+	});
+	describe("Should sort arrays using insersion", function () {
+	    var component;
+	    var expected;
+	    beforeEach(function () {
+	        component = new AlgorithmProcessor_1.AlgorithmProcessor();
+	        expected = [1, 2, 3, 4, 5, 6];
+	    });
+	    it("passes if expected is the same length as result", function () {
+	        var result = component.insertionSort([3, 4, 3, 5, 6, 7]);
+	        expect(expected.length).toBe(result.length);
+	    });
+	    it("passes if expected is the same as result", function () {
+	        var result = component.insertionSort([3, 4, 3, 5, 6, 7]);
+	        expect(expected).toEqual(result);
+	    });
+	});
+	describe("Should sort arrays using merge", function () {
+	    var component;
+	    var expected;
+	    beforeEach(function () {
+	        component = new AlgorithmProcessor_1.AlgorithmProcessor();
+	        expected = [1, 2, 3, 4, 5, 6];
+	    });
+	    it("passes if expected is the same length as result", function () {
+	        var result = component.mergeSort([3, 4, 3, 5, 6, 7]);
+	        expect(expected.length).toBe(result.length);
+	    });
+	    it("passes if expected is the same as result", function () {
+	        var result = component.mergeSort([3, 4, 3, 5, 6, 7]);
+	        expect(expected).toEqual(result);
+	    });
+	});
+	describe("Should sort arrays using quick sort", function () {
+	    var component;
+	    var expected;
+	    beforeEach(function () {
+	        component = new AlgorithmProcessor_1.AlgorithmProcessor();
+	        expected = [1, 2, 3, 4, 5, 6];
+	    });
+	    it("should be a sorted array using quick sort", function () {
+	        var pram;
+	        pram = [3, 4, 3, 5, 6, 7];
+	        var result = component.quickSort({ arr: pram, left: 0, right: 5 });
+	        expect(pram.length).toBe(result.length);
+	    });
+	    it("passes if expected is the same as result", function () {
+	        var pram;
+	        pram = [3, 4, 3, 5, 6, 7];
+	        var result = component.quickSort({ arr: pram, left: 0, right: 5 });
 	        expect(pram.length).toBe(result.length);
 	    });
 	});

@@ -8,7 +8,6 @@ export class AlgorithmProcessor {
 
     bubbleSort(arr:Array<number>):Array<number> {
         let length;
-
         length = arr.length;
 
         for (let i = length - 1; i >= 0; i--) {

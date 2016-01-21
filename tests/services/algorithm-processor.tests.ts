@@ -1,5 +1,6 @@
 import  {app} from "./app/app";
-import {AlgorithmProcessor} from "../app/algorithm-processor/AlgorithmProcessor";
+import {AlgorithmProcessor} from "../../app/algorithm-processor/AlgorithmProcessor";
+
 
 describe("Should sort arrays using bubbleSort", () => {
 
