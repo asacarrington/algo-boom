@@ -8,10 +8,9 @@ import {AlgorithmProcessor} from "../algorithm-processor/AlgorithmProcessor";
     templateUrl: '/app/algorithm-selector/algorithm-data-form.component.html'
 })
 export class AlgorithmDataFormComponent {
-    public sortTypes:Array<string> = ['quick', 'merge', 'bubble'];
+    public sortTypes:Array<string> = ['quick', 'merge', 'bubble', 'selection', 'insertionSort'];
     public processedInput:Array<number>;
     public sortedOutput:Array<number>;
-    public sortInput:string = "[ 1, 3, 5, 6, 7, 8, 9]";
     public algoText:string;
     public algorithmService:AlgorithmProcessor;
     public model:AlgorithmModel = new AlgorithmModel("", "", "");
@@ -47,10 +46,16 @@ export class AlgorithmDataFormComponent {
                     this.sortedOutput = this.algorithmService.mergeSort(this.processedInput);
                     break;
                 case'quick':
-                    this.sortedOutput = this.algorithmService.quickSort(this.processedInput);
+                    this.sortedOutput = this.algorithmService.quickSort({arr: this.processedInput, left: 0, right: this.processedInput.length});
                     break;
                 case'bubble':
                     this.sortedOutput = this.algorithmService.bubbleSort(this.processedInput);
+                    break;
+                case'selection':
+                    this.sortedOutput = this.algorithmService.selectionSort(this.processedInput);
+                    break;
+                case'insertionSort':
+                    this.sortedOutput = this.algorithmService.insertionSort(this.processedInput);
                     break;
                 default:
             }
@@ -116,6 +121,52 @@ export class AlgorithmDataFormComponent {
                                     arr[j] = temp;
                                 }
                             }
+                        }
+                        return arr;
+                    }
+                `;
+                break;
+            case'selection':
+                this.algoText = `
+                   selectionSort(arr:Array<number>):Array<number> {
+                        let minIdx:number;
+                        let temp:number;
+                        let length:number;
+
+                        length = arr.length;
+
+                        for (let i = 0; i < length; i++) {
+                            minIdx = i;
+                            for (let j = i + 1; j < length; j++) {
+                                if (arr[j] < arr[minIdx]) {
+                                    minIdx = j;
+                                }
+                            }
+                            temp = arr[i];
+                            arr[i] = arr[minIdx];
+                            arr[minIdx] = temp;
+                        }
+
+                        return arr;
+                    }
+                `;
+                break;
+            case'insertionSort':
+                this.algoText = `
+                    insertionSort(arr:Array<number>):Array<number> {
+                        let j:number;
+                        let temp:number;
+                        let length:number;
+
+                        length = arr.length;
+
+                        for (let i = 1; i < length; ++i) {
+                            temp = arr[i];
+                            j = i - 1;
+                            for (; j >= 0 && arr[j] > temp; --j) {
+                                arr[j + 1] = arr[j];
+                            }
+                            arr[j + 1] = temp;
                         }
                         return arr;
                     }
